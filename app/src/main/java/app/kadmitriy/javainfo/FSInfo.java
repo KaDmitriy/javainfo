@@ -1,26 +1,26 @@
 package app.kadmitriy.javainfo;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FSInfo implements Info {
 
 	@Override
-	public Map<String, String> getData() {
-		Map<String, String> md = new HashMap<String, String>();
-		 /* Get a list of all filesystem roots on this system */
-        File[] roots = File.listRoots();
-
-        /* For each filesystem root, print some info */
-        for (File root : roots) {
-          md.put("File system root", root.getAbsolutePath());
-          md.put("Total space (bytes)", Long.toString(root.getTotalSpace()));
-          md.put("Free space (bytes)", Long.toString(root.getFreeSpace()));
-          md.put("Usable space (bytes)", Long.toString(root.getUsableSpace()));
-        }
-        
-        return md;
+	public List<StructureInfo> getDataSI() {
+		var lsi = new ArrayList<StructureInfo>();
+		File[] roots = File.listRoots();
+		for (File root : roots) {
+			lsi.add(new StructureInfo("File system root", root.getAbsolutePath()));
+			lsi.add(new StructureInfo("Total space (bytes)", Long.toString(root.getTotalSpace())));
+			lsi.add(new StructureInfo("Free space (bytes)", Long.toString(root.getFreeSpace())));
+			lsi.add(new StructureInfo("Usable space (bytes)", Long.toString(root.getUsableSpace())));
+			
+	    }
+		return lsi;
 	}
 
 }

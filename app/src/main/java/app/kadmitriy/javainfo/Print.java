@@ -7,8 +7,8 @@ public class Print {
 	}
 	
 	public static void out(String name, Info info) {
-		System.out.println("> " + name + " <");
-		info.getData().forEach((key, value) -> println(key + ":\t" + value));
+		System.out.println("[" + name + "]");
+		info.getDataSI().forEach((si) -> println("  " + si.getKey() + ":\t" + si.getVal()));
 		println("");
 	}
 	
