@@ -1,10 +1,7 @@
 package app.kadmitriy.javainfo;
 
-import java.lang.Runtime;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MemoryInfo implements Info {
 
