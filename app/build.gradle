@@ -47,8 +47,8 @@ jar {
 graalvmNative {
     binaries {
         main {
-            imageName = "app-sysinfo"
-            mainClass = "app.kadmitriy.javainfo.MainJavaInfo"
+           imageName = "app-sysinfo"
+           mainClass = "app.kadmitriy.javainfo.MainJavaInfo"
            buildArgs.add("-O4")
            javaLauncher = javaToolchains.launcherFor {
            		languageVersion = JavaLanguageVersion.of(21)
@@ -58,5 +58,7 @@ graalvmNative {
     }
     binaries.all {
         buildArgs.add("--verbose")
+        resources.autodetect()
     }
+    //toolchainDetection = false
 }
